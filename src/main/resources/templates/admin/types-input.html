@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类新增</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editor/css/editormd.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 引入 Semantic UI JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+
+<nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h1 class="ui teal header item">小澈的Blog</h1>
+            <a href="#" class="item"><i class="mini home icon"></i>首页</a>
+            <a href="#" class="item"><i class="mini clone outline icon"></i>分类</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown  item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/id/13/100/100">
+                        孙逸枫
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="left menu">
+            <a href="#" class="teal active item">发布</a>
+            <a href="#" class="item">列表</a>
+        </div>
+    </div>
+</div>
+
+<!--中间-->
+<div  class="m-container m-padded-tb-big">
+    <div class="ui container">
+        <form id="blog-form" action="#" method="post" th:action="@{/admin/types}" class="ui form">
+            <input type="hidden" name="published">
+            <input type="hidden" name="id">
+
+
+            <div class="required field">
+                <div class="ui left labeled input">
+                    <label class="ui teal basic label">名称</label>
+                    <input type="text" name="name" placeholder="分类名称">
+                </div>
+            </div>
+
+
+
+            <div class="ui error message"></div>
+
+            <div class="ui right aligned container">
+                <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+                <button type="button" id="publish-btn" class="ui teal submit button">提交</button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </form>
+    </div>
+</div>
+
+
+
+<!--bottom-->
+<footer th:replace="_fragments :: footer"  class="ui inverted attached segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../../static/images/wechat.jpg" class="ui rounded" alt="" style="width:110px">
+            </div>
+            <div class="three wide column">
+                <h3 class="ui inverted header">最新博客</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h3 class="ui inverted header">联系我</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:sunyifengyyds13@gmail.com</a>
+                    <a href="#" class="item">QQ:2567673570</a>
+                </div>
+            </div>
+            <div class="six wide column">
+                <h3 class="ui inverted header">小澈</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">你知道的，我爱写代码，代码就是我的生命，代码就是我人生的意义，哈哈哈哈哈......滚！</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p>Copyright © 2024 小澈 All Rights Reserved</p>
+    </div>
+
+
+
+</footer>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+<script src="../../static/lib/editor/editormd.min.js"></script>
+
+<script>
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+    $('#save-btn').click(function () {
+        $('[name="published"]').val(false);
+        $('#blog-form').submit();
+    });
+
+
+    $('#publish-btn').click(function () {
+        $('[name="published"]').val(true);
+        $('#blog-form').submit();
+    });
+
+
+
+    $('.ui.form').form({
+        fields : {
+            title : {
+                identifier: 'title',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客标题'
+                }]
+            },
+            content : {
+                identifier: 'content',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客内容'
+                }]
+            },
+            typeId : {
+                identifier: 'type.id',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客分类'
+                }]
+            },
+            firstPicture : {
+                identifier: 'firstPicture',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客首图'
+                }]
+            },
+            description : {
+                identifier: 'description',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客描述'
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    $('#newblog-container').load('[[@{/footer/newblog}]]');
+</script>
+
+</body>
+</html>

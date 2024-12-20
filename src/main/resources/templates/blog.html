@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 引入 Semantic UI JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+
+<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h1 class="ui teal header item">小澈的Blog</h1>
+            <a href="#" class="item"><i class="mini home icon"></i>首页</a>
+            <a href="#" class="item"><i class="mini clone outline icon"></i>分类</a>
+            <a href="#" class="item"><i class="mini clone icon"></i>归档</a>
+            <a href="#" class="item"><i class="mini image icon"></i>关于我</a>
+            <div class="right item">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="search...">
+                    <i class="search link icon"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<!--中间-->
+<div class="m-container m-padded-tb-large">
+    <div class="ui container">
+        <div class="ui top attached segment">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <img src="https://picsum.photos/id/13/100/100" th:src="${blog.user.avatar}" alt="" class="ui avatar image">
+                    <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">孙逸枫</a></div>
+                </div>
+                <div class="item">
+                    <i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2024-7-5</span>
+                </div>
+                <div class="item">
+                    <i class="eye icon"></i> <span th:text="${blog.views}">2342</span>
+                </div>
+            </div>
+        </div>
+        <div class="ui attached segment">
+            <!--图片区域-->
+            <img src="https://picsum.photos/id/13/800/450" th:src="${blog.firstPicture}" alt="" class="ui fluid rounded image">
+        </div>
+        <div class="ui  attached padded segment">
+            <!--内容-->
+            <div class="ui right aligned basic segment">
+                <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
+            </div>
+
+            <h2 class="ui center aligned header" th:text="${blog.title}">AI浪潮下程序员该何去何从</h2>
+            <div id="content" class="m-padded-lr-responsive m-padded-tb-large" th:utext="${blog.content}">
+                <!DOCTYPE html>
+                <html lang="zh-CN">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            margin: 20px;
+                        }
+                        h1, h2 {
+                            color: #333;
+                        }
+                        p {
+                            margin: 10px 0;
+                        }
+                    </style>
+                </head>
+                <body>
+                <h1>AI浪潮下程序员该何去何从</h1>
+                <p>随着人工智能（AI）技术的迅速发展和广泛应用，全球各行各业正在经历一场深刻的变革。AI不仅在医疗、金融、制造等传统领域中崭露头角，更在互联网、自动驾驶、智能家居等新兴领域中扮演着举足轻重的角色。在这场席卷全球的AI浪潮中，程序员这一职业也面临着前所未有的机遇与挑战。作为科技变革的推动者和见证者，程序员们该如何应对这场革命性的转变，又该如何在AI时代中找到自己的定位和出路？本文将从以下几个方面探讨程序员在AI浪潮中的应对策略和发展方向。</p>
+
+                <h2>一、拥抱变化，积极学习AI技术</h2>
+                <p>AI技术的快速发展为程序员提供了前所未有的机遇。无论是机器学习、深度学习，还是自然语言处理、计算机视觉，都是当前技术前沿的重要方向。程序员应该主动学习和掌握这些新技术，以提升自己的技术能力和竞争力。通过学习AI相关的知识，程序员不仅可以提高自身的技术水平，还可以拓展自己的职业发展空间。</p>
+                <p>当前，有许多在线平台提供免费的AI课程和资源，如Coursera、edX、Udacity等，这些平台不仅提供基础课程，还有深入的专业课程。程序员可以利用这些资源，系统地学习AI理论和实践，并结合实际项目进行应用，从而更好地掌握AI技术。</p>
+
+                <h2>二、提高跨领域知识，拓宽视野</h2>
+                <p>AI技术的应用领域非常广泛，涉及到医疗、金融、教育、自动驾驶等多个行业。因此，程序员不仅需要掌握AI技术，还需要具备相关领域的知识。通过了解不同行业的业务需求和应用场景，程序员可以更好地将AI技术与实际业务相结合，开发出更具创新性和实用性的应用。</p>
+                <p>此外，跨领域知识的积累也有助于程序员在不同领域之间进行知识迁移和应用创新。例如，医疗领域的图像处理技术可以应用于自动驾驶中的物体识别，而金融领域的风险预测模型可以应用于其他领域的风险管理。因此，程序员应注重提高自己的跨领域知识，拓宽视野，提升综合竞争力。</p>
+
+                <h2>三、注重实践，积累项目经验</h2>
+                <p>AI技术的学习不仅需要理论知识的积累，更需要通过实践来提升能力。程序员应积极参与各种AI项目，无论是开源项目还是企业项目，通过实践积累经验，提升自己的技术水平和解决问题的能力。</p>
+                <p>在实际项目中，程序员可以学习到如何从数据中提取有价值的信息，如何设计和训练模型，以及如何优化算法和提高模型的性能。此外，参与实际项目还可以帮助程序员了解AI技术在不同场景中的应用，掌握不同领域的业务需求，从而更好地为企业提供解决方案。</p>
+
+                <h2>四、提升软技能，增强团队合作</h2>
+                <p>AI项目通常需要多个领域的专家合作完成，程序员不仅需要具备技术能力，还需要具备良好的沟通和合作能力。在团队合作中，程序员需要与数据科学家、产品经理、业务专家等不同角色进行沟通，了解项目需求，共同解决问题。</p>
+                <p>良好的沟通能力和团队合作精神可以帮助程序员更好地融入团队，提高项目的开发效率和质量。此外，程序员还需要具备一定的项目管理能力和问题解决能力，能够在项目中独立承担任务，及时解决问题，保证项目的顺利进行。</p>
+
+                <h2>五、关注伦理问题，承担社会责任</h2>
+                <p>随着AI技术的广泛应用，伦理问题和社会责任也变得越来越重要。程序员在开发和应用AI技术时，应该考虑到技术可能带来的伦理问题和社会影响。例如，AI技术可能涉及到隐私保护、数据安全、算法偏见等问题，程序员需要在技术开发中考虑这些因素，确保技术的应用不会对社会产生负面影响。</p>
+                <p>此外，程序员还应该关注AI技术对就业的影响。随着AI技术的广泛应用，某些传统职业可能面临被替代的风险。程序员应积极探索AI技术在创造新就业机会和提升人类生活质量方面的应用，推动技术向更为公正、合理和可持续的方向发展。</p>
+
+                <h2>六、展望未来，持续学习和创新</h2>
+                <p>AI技术的发展日新月异，程序员需要保持持续学习和创新的态度，跟上技术发展的步伐。在未来，AI技术可能会进一步融合区块链、量子计算等新兴技术，形成更为复杂和强大的技术体系。程序员需要持续学习和掌握新技术，不断提升自己的技术水平和创新能力，以应对未来的挑战和机遇。</p>
+
+                <p>综上所述，AI浪潮为程序员提供了前所未有的机遇和挑战。程序员应积极学习AI技术，提升跨领域知识，注重实践和项目经验，增强软技能和团队合作精神，关注伦理问题和社会责任，持续学习和创新。只有这样，程序员才能在这场技术变革中立于不败之地，实现个人的职业发展和技术的不断进步。</p>
+                </body>
+                </html>
+            </div>
+
+<!--            赞赏-->
+            <div class="ui center aligned container">
+                <div class="like-button-container">
+                    <button id="button" class="ui orange basic button">
+                        点赞
+                    </button>
+                    <br>
+                    <br>
+                    <a href="#" class="item"><i class="thumbs up outline icon"></i>&nbsp;<span id="count">0</span></a>
+                  </div>
+            </div>
+            <br>
+            <br>
+            <br>
+
+
+<!--        评论    -->
+
+
+        <div class="ui bottom attached segment">
+            <div id="comment-container" class="ui teal segment">
+                <div th:fragment="commentList">
+                    <div class="ui comments" style="max-width: 100%;">
+                        <h3 class="ui dividing header">评论</h3>
+                        <div class="comment" th:each="comment : ${comments}">
+                            <a class="avatar">
+                                <img src="https://picsum.photos/id/13/100/100" th:src="@{${comment.avatar}}">
+                            </a>
+                            <div class="content">
+                                <a class="author">
+                                <span th:text="${comment.nickname}">Matt</span>
+                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+                                </a>
+                                <div class="metadata">
+                                    <span class="date" th:text="${#dates.format(comment.createTime,'yyyy.MM.dd HH:mm')}">Today at 5:42PM</span>
+                                </div>
+                                <div class="text" th:text="${comment.content}">
+                                    How artistic!
+                                </div>
+                                <div class="actions">
+                                    <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickname}" onclick="reply(this)">回复</a>
+                                </div>
+                            </div>
+                            <div class="comments" th:if="${#arrays.length(comment.replyComments)}>0">
+                                <div class="comment" th:each="reply : ${comment.replyComments}">
+                                    <a class="avatar">
+                                        <img src="https://picsum.photos/id/13/100/100" th:src="@{${reply.avatar}}">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author">
+                                            <span th:text="${reply.nickname}">小红</span>&nbsp;
+                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
+                                            <span th:text="| @ ${reply.parentComment.nickname}|" class="m-teal">@ 小孙</span>
+                                        </a>
+                                        <div class="metadata">
+                                            <span class="date" th:text="${#dates.format(reply.createTime,'yyyy.MM.dd HH:mm')}">Today at 5:42PM</span>
+                                        </div>
+                                        <div class="text" th:text="${reply.content}">
+                                            How artistic!
+                                        </div>
+                                        <div class="actions">
+                                            <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+<!--                        <div class="comment">-->
+<!--                            <a class="avatar">-->
+<!--                                <img src="https://picsum.photos/id/13/100/100">-->
+<!--                            </a>-->
+<!--                            <div class="content">-->
+<!--                                <a class="author">Elliot Fu</a>-->
+<!--                                <div class="metadata">-->
+<!--                                    <span class="date">Yesterday at 12:30AM</span>-->
+<!--                                </div>-->
+<!--                                <div class="text">-->
+<!--                                    <p>This has been very useful for my research. Thanks as well!</p>-->
+<!--                                </div>-->
+<!--                                <div class="actions">-->
+<!--                                    <a class="reply">回复</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="comments">-->
+<!--                                <div class="comment">-->
+<!--                                    <a class="avatar">-->
+<!--                                        <img src="https://picsum.photos/id/13/100/100">-->
+<!--                                    </a>-->
+<!--                                    <div class="content">-->
+<!--                                        <a class="author">Jenny Hess</a>-->
+<!--                                        <div class="metadata">-->
+<!--                                            <span class="date">Just now</span>-->
+<!--                                        </div>-->
+<!--                                        <div class="text">-->
+<!--                                            Elliot you are always so right :)-->
+<!--                                        </div>-->
+<!--                                        <div class="actions">-->
+<!--                                            <a class="reply">回复</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="comment">-->
+<!--                            <a class="avatar">-->
+<!--                                <img src="https://picsum.photos/id/13/100/100">-->
+<!--                            </a>-->
+<!--                            <div class="content">-->
+<!--                                <a class="author">Joe Henderson</a>-->
+<!--                                <div class="metadata">-->
+<!--                                    <span class="date">5 days ago</span>-->
+<!--                                </div>-->
+<!--                                <div class="text">-->
+<!--                                    Dude, this is awesome. Thanks so much-->
+<!--                                </div>-->
+<!--                                <div class="actions">-->
+<!--                                    <a class="reply">回复</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                    </div>
+                </div>
+
+            </div>
+            <div id="comment-form" class="ui form" >
+                <input type="hidden" name="blog.id" th:value="${blog.id}">
+                <input type="hidden" name="parentComment.id" value="">
+                <div class="field">
+                    <textarea name="content" placeholder="请输入评论信息..."></textarea>
+
+                </div>
+                <div class="fields">
+                    <div class="field">
+                        <input type="text" name="nickname" placeholder="姓名"  th:value="${session.user?.nickname}">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="email" placeholder="邮箱" th:value="${session.user?.email}">
+                    </div>
+
+                    <div class="field">
+                        <button id="commentpost-btn" type="button" class="ui teal button">发布</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!--bottom-->
+<footer th:replace="_fragments :: footer"  class="ui inverted attached segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../static/images/wechat.jpg" class="ui rounded" alt="" style="width:110px">
+            </div>
+            <div class="three wide column">
+                <h3 class="ui inverted header">最新博客</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h3 class="ui inverted header">联系我</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:sunyifengyyds13@gmail.com</a>
+                    <a href="#" class="item">QQ:2567673570</a>
+                </div>
+            </div>
+            <div class="six wide column">
+                <h3 class="ui inverted header">小澈</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">你知道的，我爱写代码，代码就是我的生命，代码就是我人生的意义，哈哈哈哈哈......滚！</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p>Copyright © 2024 小澈 All Rights Reserved</p>
+    </div>
+
+
+
+</footer>
+
+<script>
+    $(document).ready(function() {
+        // 获取点赞数并显示在页面上
+        $.get("/api/likeCount", function(data) {
+            $('#count').text(data);
+        });
+
+        // 监听按钮点击事件，增加点赞数
+        $('#button').click(function() {
+            $.post("/api/like", function(data) {
+                $('#count').text(data);  // 更新页面上的点赞数
+            });
+        });
+    });
+
+
+    $(document).ready(function() {
+        // 初始化表单验证规则
+        $('.ui.form').form({
+            fields: {
+                content: {
+                    identifier: 'content',
+                    rules: [{
+                        type: 'empty',
+                        prompt: '请输入评论内容'
+                    }
+                    ]
+                },
+                nickname: {
+                    identifier: 'nickname',
+                    rules: [{
+                        type: 'empty',
+                        prompt: '请输入你的大名'
+                    }]
+                },
+                email: {
+                    identifier: 'email',
+                    rules: [{
+                        type: 'email',
+                        prompt: '请填写正确的邮箱地址'
+                    }]
+                }
+            }
+        });
+
+    //     // 点击发布按钮触发表单验证
+    //     $('#commentpost-btn').click(function () {
+    //         // 触发验证
+    //         var isValid = $('.ui.form').form('is valid');
+    //         if (isValid) {
+    //             console.log('校验成功');
+    //             postData();
+    //         } else {
+    //             console.log('校验失败');
+    //         }
+    //     });
+    //     // 发布评论
+    //     function postData() {
+    //         $("#comment-container").load(/*[[@{/comments}]]*/"/comments", {
+    //             "parentComment.id": $("[name='parentComment.id']").val(),
+    //             "blog.id": $("[name='blog.id']").val(),
+    //             "nickname": $("[name='nickname']").val(),
+    //             "email": $("[name='email']").val(),
+    //             "content": $("[name='content']").val()
+    //         }, function (responseTxt, statusTxt, xhr) {
+    //             clearContent();
+    //         });
+    //     }
+    //
+    // //     clear
+    //     function clearContent(){
+    //         console.log("clearContent function is called");
+    //         $("[name='content']").val('');
+    //         $("[name='parentComment']").val(-1);
+    //         $("[name='content']").attr("请输入评论信息...");
+    //     }
+    //
+    //
+    // });
+    // function reply(obj){
+    //     var commentId= $(obj).data("commentid");
+    //     var commentNickname= $(obj).data('commentnickname');
+    //     $("[name='content']").attr("placeholder","@"+commentNickname).focus();
+    //     $("[name='parentComment.id']").val(commentId)
+    //     $(window).scroll($("comment-form"),200);
+    // }
+        // 点击发布按钮触发表单验证
+        $('#commentpost-btn').click(function () {
+            // 触发表单验证
+            var isValid = $('.ui.form').form('is valid');
+            if (isValid) {
+                console.log('校验成功');
+                postData();
+            } else {
+                console.log('校验失败');
+            }
+        });
+
+        // 发布评论
+        function postData() {
+            // 使用 AJAX 提交评论数据并刷新评论列表
+            $("#comment-container").load("/comments", {
+                "parentComment.id": $("[name='parentComment.id']").val(),
+                "blog.id": $("[name='blog.id']").val(),
+                "nickname": $("[name='nickname']").val(),
+                "email": $("[name='email']").val(),
+                "content": $("[name='content']").val()
+            }, function (responseTxt, statusTxt, xhr) {
+                if (statusTxt === "success") {
+                    console.log("评论发布成功！");
+                    clearContent(); // 清空表单内容
+                } else {
+                    console.error("评论发布失败:", xhr.statusText);
+                }
+            });
+        }
+
+        // 清空评论表单内容
+        function clearContent() {
+            console.log("clearContent function is called");
+            $("[name='content']").val(''); // 清空评论输入框
+            $("[name='parentComment.id']").val(-1); // 重置父评论 ID
+            $("[name='content']").attr("placeholder", "请输入评论信息..."); // 重置占位符
+        }
+
+        // 回复功能
+        function reply(obj) {
+            var commentId = $(obj).data("commentid"); // 获取评论 ID
+            var commentNickname = $(obj).data("commentnickname"); // 获取评论昵称
+            // 设置占位符为 @昵称 并聚焦
+            $("[name='content']").attr("placeholder", "@" + commentNickname).focus();
+            // 设置父评论 ID
+            $("[name='parentComment.id']").val(commentId);
+            // 滚动到评论表单
+            $("html, body").animate({
+                scrollTop: $("#comment-form").offset().top
+            }, 200);
+        }
+
+        // 将 reply 方法绑定到全局
+        window.reply = reply;
+    });
+
+
+
+
+</script>
+<script>
+    $('#newblog-container').load('[[@{/footer/newblog}]]');
+</script>
+
+
+
+
+
+
+</body>
+</html>

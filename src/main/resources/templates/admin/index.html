@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- 引入 Semantic UI JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+
+<nav  th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h1 class="ui teal header item">小澈的Blog</h1>
+            <a href="#" class="item"><i class="mini home icon"></i>首页</a>
+            <a href="#" class="item"><i class="mini clone outline icon"></i>分类</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown  item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/id/13/100/100">
+                        孙逸枫
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#"  class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<div class="ui attached pointing menu">
+    <div class="ui container">
+
+    </div>
+</div>
+
+<!--中间-->
+<div class="m-container m-padded-tb-large">
+    <div class="container">
+<!--        header-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="ui success large  message">
+            <h3>Hi,</h3>
+            <p>孙逸枫，欢迎登录！</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+    </div>
+</div>
+
+
+
+<!--bottom-->
+<footer th:replace="admin/_fragments :: footer"  class="ui inverted attached segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <img src="../../static/images/wechat.jpg" class="ui rounded" alt="" style="width:110px">
+            </div>
+            <div class="three wide column">
+                <h3 class="ui inverted header">最新博客</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h3 class="ui inverted header">联系我</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:sunyifengyyds13@gmail.com</a>
+                    <a href="#" class="item">QQ:2567673570</a>
+                </div>
+            </div>
+            <div class="six wide column">
+                <h3 class="ui inverted header">小澈</h3>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">你知道的，我爱写代码，代码就是我的生命，代码就是我人生的意义，哈哈哈哈哈......滚！</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p>Copyright © 2024 小澈 All Rights Reserved</p>
+    </div>
+
+
+
+</footer>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.js"></script>
+
+<script>
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+</script>
+<script>
+    $('#newblog-container').load('[[@{/footer/newblog}]]');
+</script>
+
+</body>
+</html>
